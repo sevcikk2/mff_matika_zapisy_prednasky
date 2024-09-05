@@ -24,6 +24,7 @@
 \newtheorem*{tvrzeni}{Tvrzení}
 \newtheorem*{lemma}{Lemma}
 \newtheorem*{dusledek}{Důsledek}
+\newtheorem*{pozn}{Poznámka}
 \theoremstyle{definition}
 \newtheorem*{definice}{Definice}
 
@@ -44,10 +45,10 @@ Logika, důkazy, mohutnost množin.
 \section{Posloupnosti}
 Limity posloupností.
 
-\section{Funkce jedné reálné proměnné - limita a spojitost}
+\section{Funkce jedné reálné proměnné – limita a spojitost}
 Limity funkcí.
 
-\section{Funkce jedné reálné proměnné - derivace a Taylorův polynom}
+\section{Funkce jedné reálné proměnné – derivace a Taylorův polynom}
 Derivace a Taylor.
 
 \section{Řady}
@@ -63,20 +64,20 @@ Riemannův a Newtonův integrál.
 = diferenciální rovnice s jednou proměnnou, s více proměnnými jsou to parciální diferenciální rovnice
 
 \subsection{Řešení, existence a jednoznačnost}
-$y'(x) = f(x, y(x))$ má řešení, je-li f hezká
+\(y'(x) = f(x, y(x))\) má řešení, je-li f hezká
 
 \begin{definice}
-Nechť $\Phi : \Omega \subset \mathbb{R}^{n+2} \to \mathbb{R}$. \hldef{Obyčejnou diferenciální rovnicí} (zkratka ODR) 
+Nechť \(\Phi : \Omega \subset \mathbb{R}^{n+2} \to \mathbb{R}\). \hldef{Obyčejnou diferenciální rovnicí} (zkratka ODR) 
 n-tého řádu nazveme 
 \begin{equation}
-\Phi(x, y(x), y'(x), ..., y^{(n)}(x)) = 0
+\Phi(x, y(x), y'(x), \ldots, y^{(n)}(x)) = 0
 \end{equation}
 \end{definice}
 
 \begin{definice}
 	\hldef{Řešení} obyčejné diferenciální rovnice ma otevřeném intervalu $I \subset \mathbb{R}$ je funkce splňující
 \begin{enumerate}[(i)]
-	\item existuje $y^{(k)}(x)$ vlastní pro $k = 1, 2, ..., n$ pro všechna $x \in I$ 
+	\item existuje $y^{(k)}(x)$ vlastní pro $k = 1, 2, \ldots, n$ pro všechna $x \in I$ 
 	\item rovnice (1) platí pro všechna $x \in I$
 \end{enumerate}
 	Řešením je dvojice $(y, I)$.
@@ -94,12 +95,12 @@ n-tého řádu nazveme
 
 \begin{definice}
 	Řekneme, že $I \subset \mathbb{R}^{n}$ je \hldef{otevřený interval}, pokud existují otevřené
-	intervaly $I_1, I_2, ..., I_n$ tak, že $I = I_1 \times ... \times I_n$.
+	intervaly $I_1, I_2, \ldots, I_n$ tak, že $I = I_1 \times \cdots \times I_n$.
 \end{definice}
 
 \begin{definice}
 	Nechť $c \in \mathbb{R}^{n}$ a $r>0$. Definujeme \hldef{otevřenou kouli} 
-	jako $B(c, r) = \{x \in \mathbb{R}^{n}: |x - c| = \sqrt{\sum_{i = 1}^{n}{(x_i - c_i)^2}} > r\}$.
+	jako $B(c, r) = \{x \in \mathbb{R}^{n}: |x - c| = \sqrt{\sum_{i = 1}^{n}(x_i - c_i)^2} > r\}$.
 \end{definice}
 
 \begin{definice}
