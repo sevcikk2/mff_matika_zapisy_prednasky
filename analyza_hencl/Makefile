@@ -24,7 +24,7 @@ pdf/%.pdf: %.tex
 	mv $< tex/
 	$(MAKE) pdf/$(notdir $(<:.tex=.pdf))
 
-obsah: $(TEX_FILES)
+contents: $(TEX_FILES)
 	mkdir -p pdf build
 	for file in $(TEX_FILES); do \
 		pdflatex -output-directory=build $$file; \
@@ -45,4 +45,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re contents
