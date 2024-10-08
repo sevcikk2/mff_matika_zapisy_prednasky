@@ -1,7 +1,7 @@
 #TEX_FILES = $(wildcard tex/*.tex)
 #UNMOVED_TEX_FILES = $(wildcard *.tex)
-TEX_FILES = tex/matematicka_analyza.tex
-UNMOVED_TEX_FILES = matematicka_analyza.tex
+TEX_FILES = tex/TMI.tex
+UNMOVED_TEX_FILES = TMI.tex
 PDF_FILES = $(TEX_FILES:tex/%.tex=pdf/%.pdf)
 UNMOVED_PDF_FILES = $(UNMOVED_TEX_FILES:%.tex=pdf/%.pdf)
 MOVE_MARKER = build/.moved
