@@ -26,8 +26,10 @@
 \newtheorem*{tvrzeni}{Tvrzení}
 \newtheorem*{lemma}{Lemma}
 \newtheorem*{dusledek}{Důsledek}
-\newtheorem*{pozn}{Poznámka}
 \newtheorem*{pozorovani}{Pozorování}
+\theoremstyle{definition}
+\newtheorem*{pozn}{Poznámka}
+\theoremstyle{definition}
 \newtheorem*{pr}{Příklad}
 \theoremstyle{definition}
 \newtheorem*{definice}{Definice}
@@ -49,7 +51,7 @@ grafem. (Riemannův integrál lze použít k výpočtu míry = integrálu, ale j
 uzavřeném intervalu a pro omezenou funkci.)
 (( 
 
-Ne všechny funkce jsou ”integrovatelné”, ne všechny množiny ”měřitelné”.
+Ne všechny funkce jsou ”integrovatelné”, ne všechny množiny ”měřitelné”. \\
 \textit{úplnost} :  Na  prostoru  Riemannovsky  integrovatelných  funkcí  na  intervalu  \(I\) 
 definujme skalární součin vztahem   \( \langle f, g\rangle    :=   \int _I  f \cdot g \). 
 Indukovaný metrický prostor není úplný.
@@ -75,20 +77,65 @@ na 5 částí, posunout je, a získat 2 stejné koule, tedy nezachováme míru.
 Tedy ne každá množina je měřitelná.
 
 \section{Základní pojmy teorie míry}
+\begin{definice}
+    Buď X libovolná neprázdná množina. Symbolem	\(\mathcal{P}(X) =  \{A :  A \subset	X\}\) značíme \hldef{potenční množinu}
+    množiny X, neboli systém všech podmnožin množiny X.
+\end{definice}
+\begin{definice}
+    \(A \subset \mathcal{P}(X)\) je  \hldefmath{\(\sigma\)-algebra} na X, jestliže
+    \begin{enumerate}[(i)]
+        \item \(\emptyset, X \in A\);
+        \item \(A \in \mathcal{A} \Rightarrow X \setminus A \in \mathcal{A}\) 
+        \item \(A_i \in \mathcal{A}_i, i \in \mathbb{N} \Rightarrow \bigcup_{i = 1}^{\infty}A_i \in \mathcal{A}\)
+    \end{enumerate}
+    \(A \subset \mathcal{P}(X) je algebra, splňuje-li (1), (2) a \\
+    (iii') A, B \in \mathcal{A} \Rightarrow A \cup B \in A.\) \\
+    \textbf{Pozn.:} To sjednocení je sice nekonečný, ale můžeme to doplnit prázdnýma množinama, takže
+    je povolený i konečný sjednocení. \\
+    \textbf{Pozn.:} Z tohoto plyne i uzavřenost na (konečné/) spočetné průniky, protože 
+    \(\bigcap_{k = 1}^{\infty} A_k = X \setminus \bigcup_{k=1}^{\infty}(X \setminus A_k)\) \\  
+    \textbf{Pozn.:} Algebra  je  uzavřená  na  konečné  množinové  operace  (průnik,  sjednocení, rozdíl),
+     \(\sigma\)-algebra na spočetné množinové operace.
+\end{definice}
+\begin{pr}
+    \begin{itemize}
+        \item \(\{ \emptyset , X\}\) - nejmenší \(\sigma\)-algebra na X
+        \item \(\mathcal{P}(X)\) - největší \(\sigma\)-algebra na X
+        \item \(A = \{\emptyset, \{1\}, \{2, 3\}, \{1, 2, 3\}\}\) je \(\sigma\)-algebra na \(X = \{1, 2, 3\}\).
+        \item \(A = \{ A \subset X: A \ spočetná nebo \ X \setminus A \ spočetná\}\) je \(\sigma\)-algebra
+    \end{itemize}
+\end{pr}
 \begin{veta}
     \hlvetamath{Existence nejmenší \(\sigma\)-algebry}
 \end{veta}
-\begin{veta}
-    slkdjl
-\end{veta}
+\begin{proof}
+    viz zápisky mobil
+\end{proof}
 \begin{definice}
-    Nechť \(a = (a_1, ..., a_n), b = (b_1, ..., b_n) \in \mathbb{R}\). Množina \(W = {x = (x_1, ..., x_n) \in \mathbb{R}:
-    a_i < x_i < b<i pro všechna i \in {1, ..., n}}\) a také ksždou množinu, která vznikne záměnou libovolného znaménka "<" za "<=", 
-    nazveme \hldef{n-buňka}. \hldef{Objem} n-buňky definujeme jako 0, je-li \(W = \emptyset\) a jako \( vol(W) = \prod_ ...\)
+    \hldefmath{borelovskou \(\sigma\)-algebrou}
+\end{definice}
+\begin{definice}
+    \hldef{měřitelný prostor}
+    \hldef{míra}
+    \hldef{prostor s mírou}
 \end{definice}
 \begin{veta}
-    \hlveta{Rozšíření elementárního objemu}
-Existuje
+    \hlveta{Spojitost míry}
+\end{veta}
+\begin{proof}
+    viz mobil.
+\end{proof}
+\begin{definice}
+    Nechť \(a = (a_1, ..., a_n), \ b = (b_1, ..., b_n) \in \mathbb{R}^{n}\). Množina \[W = \{x = (x_1, ..., x_n) \in \mathbb{R}^{n}:
+    a_i < x_i < b_i \ \forall i \in \{1, ..., n\}\}\] a také každou množinu, která vznikne záměnou libovolného 
+    znaménka \(<\) za \(\leq\), 
+    nazveme \hldef{n-buňkaa }. \hldef{Objem} n-buňky definujeme jako 0, je-li \(W = \emptyset\) a jako 
+    \( vol(W) = \prod_{i=1}^n (bi - ai)\), je-li \(W \neq \emptyset\).
+\end{definice}
+\begin{veta}
+    \hlveta{Rozšíření elementárního objemu} \\
+Existuje právě jedna míra \(\mathcal{L}_n\) na \(\mathcal{B}(\mathbb{R}^n)\) taková, že pro každou n-buňku 
+W platí \(\mathcal{L}_n(W) = vol(W)\).
 \end{veta}
 \begin{proof}
     Náznak: Lze ukázat, že je-li \(G \in \mathbb{R}\) otevřená, pak existují po dvou disjunktní n-buňky takové, že 
@@ -102,7 +149,7 @@ Existuje
     \item Z konstrukce míry \(Z_n\) plyne, že je-li \(A \subset \mathbb{R}^n\) borelovská a 
     \(\epsilon < 0\), potom existuje otrevřená množina \(G \in \mathbb{R}^n taková, že A \subset G a Z_n(G \setminus A) < A\) 
     \item Míra \(Z_n\) je invariantní vůči posunutí - pro všechna \( x \in \mathbb{R}^n\) a \(A \in \mathcal{B}(\mathbb{R}^n)\) 
-    platí !!!!!!!!!!
+    platí \(\mathcal{L}_n(x + A) = \mathcal{L}_n(A)\)
 \end{itemize}
 \end{pozn}
 \begin{definice}
@@ -110,10 +157,10 @@ Nechť \((X, \mathcal{A} , \mu)\) je prostor s mírou. Řekneme, že \(\mu\) je 
 je-li \(A \in \mathcal{A} \) splňující \(\mu (A) = 0\) a \(A^I \in A\) , pak \(A^I \in \mathcal{A} \).
 \end{definice}
 \begin{pozn}
-    V takovém případě nutně \(\mu (A^I) - 0\) !!!!!!!!!!!!!!!!!
+    V takovém případě nutně \(\mu (A^\prime) = 0\)
 \end{pozn}
 \begin{veta}
-\hlveta{Zúplnění míry} (bez dk)
+\hlveta{Zúplnění míry} (bez důkazu)
 
 Nechť \((X, \mathcal{A} , \mu)\) je prostor s mírou. Nechť \(\mathcal{A}_0\) je systém všech množin 
 \(E subset X\), pro něž existují \(A, B \in \mathcal{A} \) takové, že \(A \subset E \subset B a \mu(B \setminus A) = 0\). Potom 
@@ -122,12 +169,13 @@ Definujeme \(\mu_0(E) = \mu(A) \forall E \in \mathcal{A}_0\). Potom \(\mu = \mu_
 na \(\mathcal{A} \) a \((X, \mathcal{A}_0 , \mu_0)\) je prostor s úplnou mírou.
 \end{veta}
 \begin{definice}
-Prostor  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Prostor \((X, \mathcal{A}_0 , \mu_0)\) z předchozí věty nazýváme zúplněním prostoru \((X, \mathcal{A} , \mu)\), 
+\(A_0\) se nazývá zúplnění \(\sigma\)-algebry A vzhledem k míře \(\mu\) a \(\mu_0\) se nazývá zúplnění míry \(\mu\).
 \end{definice}
 \begin{definice}
     Zúplnění \(\sigma\)-algebry \(\mathcal{B} (\mathbb{R}^n)\) vzhledem i \(Z_n\) značíme \(\mathcal{B}_0(\mathbb{R}^n) \)
-    a nazýváme ji \(\sigma\)-algebrou \hldef{lebesgueovsky měřitelných množin}. Odpovídající zúplnění míry \(Z_n\) značíme opět \(Z_n\) 
-    a nazýváme je hldef{Lebesgueovou mírou}.
+    a nazýváme ji \(\sigma\)-algebrou \hldef{lebesgueovsky měřitelných množin}. Odpovídající zúplnění 
+    míry \(Z_n\) značíme opět \(Z_n\) a nazýváme je hldef{Lebesgueovou mírou}.
 \end{definice}
 
 \section{Měřitelné funkce}
@@ -135,51 +183,39 @@ Prostor  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     Nechť \((X, \mathcal{A})\) je měřitelný prostor a \((Y, \tau)\) je metrický prostor. 
     Řekneme, že zobrazení \(f: X -> Y\) je \hldef{měřitelné}, jestliže \(f^{-1} \in \mathcal{A}\) 
     pro každou \(V \subset Y\) otevřenou. Je-li navíc \((X, \rho)\)metrický prostor a \(\mathcal{A} = \mathcal{B}(X)\) 
-    , pak F nazýváme hldef{borelovské}.
+    , pak F nazýváme \hldef{borelovské}.
 \end{definice}
 \begin{pozn}
-    Nechť \((X, \rho), (Y, \tau)\) jsou M.P.. Pak zobrazení \(g: X -> Y\) je spojité práve tehdy když 
+    Nechť \((X, \rho), (Y, \tau)\) jsou MP. Pak zobrazení \(g: X \rightarrow Y\) je spojité právě tehdy, když 
     \(g^{-1}(V)\) je otevřená v X pro každou V otevřenou v Y.
     Tedy každé spojité zobrazení je borelovké.
 \end{pozn}
 \begin{pr}
 Nechť \((X, \mathcal{A})\) je měřitelný prostor, \(A \subset X\). Potom \hldef{charakteristická funkce} 
-množiny A je definovaná předpisem \(\mathcal{x}_A (x) = 1, pokud x \in A, 0, pokud x \notin A\) je 
+množiny A je definovaná předpisem \(\chi_A (x) = 1\), pokud \(x \in A, 0\), pokud \(x \notin A\) je 
 měřitelné práve tehdy, když \(A \in \mathcal{A}\)
 \end{pr}
 \begin{proof}
-    ,,=>" Je-li \(\mathcal{x}_A\) měřitelná, pak \(A = \mathcal{x}_A^{-1} ((1/2, 3/2))\) je vzor otevřené množiny, a 
+    ,,\(\Rightarrow\)" Je-li \(\chi_A\) měřitelná, pak \(A = \chi_A^{-1} ((1/2, 3/2))\) je vzor otevřené množiny, a 
     tehdy \(A \in \mathcal{A}\)
-    ,,<=" Nechť \(A \in \mathcal{A}, A \subset \mathbb{R}\) otevřená. Pak 
-    \(\mathcal{x}_A^{-1} = \)
+    ,,\(\Leftarrow\)" Nechť \(A \in \mathcal{A}, A \subset \mathbb{R}\) otevřená. Pak 
+    \(\chi_A^{-1} = \)
     \begin{itemize}
         \item X, pokud 0, 1 \(\in B\),
         \item A, pokud \(0 \notin B, 1 \in B\),
         \item \(X \setminus A\)
         !!!!!!!!!!!!!!!!!!!!!!
     \end{itemize}
-    Dle vlastností \(\sigma\)-algebry patří všechny tyto množiny so \(mathcal{A}\), a tedy \(\mathcal{x}_A\) je měřitelná.
+    Dle vlastností \(\sigma\)-algebry patří všechny tyto množiny do \(\mathcal{A}\), a tedy \(\chi_A\) je měřitelná.
 \end{proof}
 \begin{veta}
-    \hlveta{měřitelnost složení zobrazení}
+    \hlveta{Měřitelnost složení zobrazení}
     Nechť \((Y, \tau), (Z, \sigma) \) jsou M.P. a \((X, \mathcal{A})\) je měřitelný prostor. 
-    Nechť \(g: Y -> Z\) je spojité a \( f:X->Y \) je měřitelné. Potom \(gof: X -> Z\) je měřitelné.
+    Nechť \(g: Y \rightarrow Z\) je spojité a \( f:X \rightarrow Y \) je měřitelné. Potom \(gof: X \rightarrow Z\) je měřitelné.
 \end{veta}
 \begin{proof}
     obrázkem
 \end{proof}
-
-\section{Funkce jedné reálné proměnné – derivace a Taylorův polynom}
-Derivace a Taylor.
-
-\section{Řady}
-Konvergence řad.
-
-\section{Primitivní funkce}
-Primitivní funkce, integrace.
-
-\section{Určitý integrál}
-Riemannův a Newtonův integrál.
 
 % \input{tex/sections/section_8}
 
