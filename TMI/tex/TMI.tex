@@ -12,6 +12,8 @@
 \usepackage{soul}				% For command hl = highlight
 \usepackage{enumerate}			% For lists
 \usepackage{soulpos}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 
 \DeclareRobustCommand{\hldef}[1]{{\sethlcolor{SkyBlue}\hl{#1}}}
 \DeclareRobustCommand{\hldefmath}[1]{{\colorbox{SkyBlue}{#1}}}
@@ -178,7 +180,7 @@ Prostor \((X, \mathcal{A}_0 , \mu_0)\) z předchozí věty nazýváme zúplněn�
     míry \(Z_n\) značíme opět \(Z_n\) a nazýváme je hldef{Lebesgueovou mírou}.
 \end{definice}
 
-\section{Měřitelné funkce}
+\subsection{Měřitelné funkce}
 \begin{definice}
     Nechť \((X, \mathcal{A})\) je měřitelný prostor a \((Y, \tau)\) je metrický prostor. 
     Řekneme, že zobrazení \(f: X -> Y\) je \hldef{měřitelné}, jestliže \(f^{-1} \in \mathcal{A}\) 
@@ -203,8 +205,8 @@ měřitelné práve tehdy, když \(A \in \mathcal{A}\)
     \begin{itemize}
         \item X, pokud 0, 1 \(\in B\),
         \item A, pokud \(0 \notin B, 1 \in B\),
-        \item \(X \setminus A\)
-        !!!!!!!!!!!!!!!!!!!!!!
+        \item \(X \setminus A\) , pokud \(0 \in B, \ 1 \notin B\)
+        \item \(\emptyset\) , pokud \(0,1 \notin B\)
     \end{itemize}
     Dle vlastností \(\sigma\)-algebry patří všechny tyto množiny do \(\mathcal{A}\), a tedy \(\chi_A\) je měřitelná.
 \end{proof}
@@ -214,7 +216,10 @@ měřitelné práve tehdy, když \(A \in \mathcal{A}\)
     Nechť \(g: Y \rightarrow Z\) je spojité a \( f:X \rightarrow Y \) je měřitelné. Potom \(gof: X \rightarrow Z\) je měřitelné.
 \end{veta}
 \begin{proof}
-    obrázkem
+    obrázkem:
+    \begin{center}
+        \includegraphics[width=0.9\textwidth]{obr1_dk_veta_1_5.jpg}
+    \end{center}
 \end{proof}
 
 % \input{tex/sections/section_8}
